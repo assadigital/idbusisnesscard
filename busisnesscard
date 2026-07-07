@@ -1,0 +1,744 @@
+<!doctype html>
+<html lang="es-MX">
+  <head>
+    <meta charset="UTF-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
+    />
+    <title>Pedro Cruz Lara | Digital Business Card</title>
+    <meta
+      name="description"
+      content="Tarjeta digital profesional de Pedro Cruz Lara, Asesor Patrimonial. Seguros, retiro, educación, inversión y protección familiar."
+    />
+    <meta name="theme-color" content="#005AA9" />
+    <meta name="format-detection" content="telephone=yes" />
+    <style>
+      :root {
+        --azul: #005aa9;
+        --azul-2: #007bff;
+        --navy: #071a33;
+        --dorado: #d8b15d;
+        --blanco: #ffffff;
+        --gris: #eef3f8;
+        --texto: #1f2937;
+        --muted: #6b7280;
+        --borde: #e4edf6;
+        --shadow: 0 25px 60px rgba(0, 30, 80, 0.18);
+        --radius: 28px;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      selector {
+        -webkit-text-size-adjust: none;
+        text-size-adjust: none; 
+      }
+
+      body {
+        min-height: 100vh;
+        min-height: 100dvh;
+        font-family: Arial, Helvetica, sans-serif;
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(0, 122, 255, 0.35),
+            transparent 35%
+          ),
+          radial-gradient(
+            circle at bottom right,
+            rgba(216, 177, 93, 0.28),
+            transparent 35%
+          ),
+          linear-gradient(135deg, #071a33, #0b2342 45%, #f7fbff);
+        color: var(--texto);
+        padding: 24px;
+        overflow-x: hidden;
+      }
+
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      a {
+        -webkit-tap-highlight-color: transparent;
+      }
+
+      .page {
+        width: min(1120px, 100%);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(320px, 420px) minmax(0, 1fr);
+        gap: 28px;
+        align-items: start;
+      }
+
+      .card,
+      .panel {
+        background: rgba(255, 255, 255, 0.92);
+        border: 1px solid rgba(255, 255, 255, 0.55);
+        border-radius: var(--radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+      }
+
+      @supports (
+        (-webkit-backdrop-filter: blur(18px)) or (backdrop-filter: blur(18px))
+      ) {
+        .card,
+        .panel,
+        .bottom-nav {
+          -webkit-backdrop-filter: blur(18px);
+          backdrop-filter: blur(18px);
+        }
+      }
+
+      .hero {
+        position: relative;
+        padding: 34px 28px;
+        text-align: center;
+        background:
+          linear-gradient(
+            180deg,
+            rgba(0, 90, 169, 0.95),
+            rgba(7, 26, 51, 0.98)
+          ),
+          url("https://i.postimg.cc/MG8LpyMm/elite-1254-x-836.png");
+        background-size: cover;
+        background-position: center;
+        background-blend-mode: multiply;
+        color: var(--blanco);
+      }
+
+      .badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        font-size: 13px;
+        margin-bottom: 20px;
+      }
+
+      .photo {
+        width: 138px;
+        height: 138px;
+        margin: 0 auto;
+        border-radius: 50%;
+        border: 5px solid rgba(255, 255, 255, 0.85);
+        object-fit: cover;
+        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.35);
+        background: var(--blanco);
+      }
+
+      h1 {
+        font-size: 32px;
+        margin-top: 18px;
+        letter-spacing: -0.6px;
+        line-height: 1.1;
+      }
+
+      .role {
+        margin-top: 6px;
+        color: rgba(255, 255, 255, 0.86);
+        font-size: 16px;
+      }
+
+      .gold-line {
+        width: 90px;
+        height: 3px;
+        background: linear-gradient(
+          90deg,
+          transparent,
+          var(--dorado),
+          transparent
+        );
+        margin: 18px auto;
+      }
+
+      .hero p {
+        font-size: 14.5px;
+        line-height: 1.6;
+        color: rgba(255, 255, 255, 0.9);
+      }
+
+      .content,
+      .panel {
+        padding: 24px;
+      }
+
+      .quick-actions {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .btn {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 9px;
+        min-height: 50px;
+        padding: 13px 14px;
+        border-radius: 16px;
+        text-decoration: none;
+        font-weight: 700;
+        color: var(--blanco);
+        background: linear-gradient(135deg, var(--azul), var(--azul-2));
+        box-shadow: 0 12px 25px rgba(0, 90, 169, 0.25);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+        text-align: center;
+        border: 0;
+        cursor: pointer;
+      }
+
+      .btn:hover,
+      .btn:focus-visible {
+        transform: translateY(-3px);
+        box-shadow: 0 18px 30px rgba(0, 90, 169, 0.35);
+        outline: none;
+      }
+
+      .btn.secondary {
+        color: var(--navy);
+        background: var(--blanco);
+        border: 1px solid #dbe7f3;
+        box-shadow: none;
+      }
+
+      .btn.cta {
+        margin-top: 14px;
+        grid-column: 1 / -1;
+        background: linear-gradient(135deg, #d8b15d, #f3d37c);
+        color: #172033;
+      }
+
+      .section {
+        margin-top: 22px;
+      }
+
+      .section h2 {
+        font-size: 18px;
+        color: var(--navy);
+        margin-bottom: 14px;
+      }
+
+      .info-list {
+        display: grid;
+        gap: 10px;
+      }
+
+      .info-item {
+        display: flex;
+        gap: 12px;
+        padding: 13px;
+        border-radius: 16px;
+        background: #f6f9fc;
+        border: 1px solid var(--borde);
+        font-size: 14px;
+      }
+
+      .icon {
+        width: 34px;
+        height: 34px;
+        flex: 0 0 34px;
+        display: grid;
+        place-items: center;
+        border-radius: 12px;
+        background: rgba(0, 90, 169, 0.1);
+      }
+
+      .logo-marquee {
+        overflow: hidden;
+        background: var(--blanco);
+        border: 1px solid #ddd;
+        border-radius: 20px;
+        padding: 18px;
+        margin-top: 14px;
+      }
+
+      .track {
+        display: flex;
+        gap: 52px;
+        align-items: center;
+        width: max-content;
+        animation: move 22s linear infinite;
+      }
+
+      .track img {
+        height: 45px;
+        width: auto;
+        object-fit: contain;
+        flex: 0 0 auto;
+      }
+
+      @keyframes move {
+        from {
+          transform: translateX(0);
+        }
+        to {
+          transform: translateX(-50%);
+        }
+      }
+
+      .panel {
+        padding: 28px;
+      }
+
+      .panel-title {
+        display: flex;
+        justify-content: space-between;
+        gap: 18px;
+        align-items: center;
+        margin-bottom: 22px;
+      }
+
+      .panel-title h2 {
+        font-size: clamp(26px, 4vw, 42px);
+        color: var(--navy);
+        letter-spacing: -1px;
+        line-height: 1.05;
+      }
+
+      .panel-title p {
+        margin-top: 10px;
+        color: var(--muted);
+        line-height: 1.6;
+        max-width: 620px;
+      }
+
+      .qr {
+        width: 120px;
+        min-width: 120px;
+        height: 120px;
+        border-radius: 18px;
+        object-fit: cover;
+        background: var(--blanco);
+        border: 8px solid var(--blanco);
+        box-shadow: 0 12px 25px rgba(0, 0, 0, 0.12);
+      }
+
+      .services {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 14px;
+      }
+
+      .service {
+        padding: 18px;
+        min-height: 128px;
+        border-radius: 22px;
+        background: linear-gradient(180deg, #fff, #f4f8fc);
+        border: 1px solid var(--borde);
+        transition:
+          transform 0.2s ease,
+          box-shadow 0.2s ease;
+      }
+
+      .service:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 16px 35px rgba(10, 43, 85, 0.12);
+      }
+
+      .service b {
+        display: block;
+        margin: 10px 0 6px;
+        color: var(--navy);
+      }
+
+      .service span {
+        color: var(--muted);
+        font-size: 13.5px;
+        line-height: 1.45;
+      }
+
+      .testimonial {
+        margin-top: 14px;
+        padding: 20px;
+        border-radius: 22px;
+        background: linear-gradient(
+          135deg,
+          rgba(0, 90, 169, 0.08),
+          rgba(216, 177, 93, 0.12)
+        );
+        border: 1px solid rgba(0, 90, 169, 0.12);
+        line-height: 1.65;
+        color: #334155;
+      }
+
+      .bottom-nav {
+        position: fixed;
+        left: 50%;
+        bottom: calc(18px + env(safe-area-inset-bottom));
+        transform: translateX(-50%);
+        display: none;
+        gap: 10px;
+        padding: 10px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.92);
+        box-shadow: 0 15px 40px rgba(0, 0, 0, 0.18);
+        z-index: 20;
+      }
+
+      .bottom-nav a {
+        width: 48px;
+        height: 48px;
+        display: grid;
+        place-items: center;
+        border-radius: 50%;
+        background: var(--azul);
+        color: var(--blanco);
+        text-decoration: none;
+        font-size: 20px;
+      }
+
+      footer {
+        margin-top: 22px;
+        color: var(--muted);
+        font-size: 13px;
+        text-align: center;
+        line-height: 1.5;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.01ms !important;
+          animation-iteration-count: 1 !important;
+          scroll-behavior: auto !important;
+          transition-duration: 0.01ms !important;
+        }
+      }
+
+      @media (max-width: 900px) {
+        body {
+          padding: 14px 14px 96px;
+        }
+
+        .page {
+          grid-template-columns: 1fr;
+        }
+
+        .services {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .panel-title {
+          align-items: flex-start;
+        }
+
+        .bottom-nav {
+          display: flex;
+        }
+      }
+
+      @media (max-width: 560px) {
+        .quick-actions,
+        .services {
+          grid-template-columns: 1fr;
+        }
+
+        .panel-title {
+          flex-direction: column;
+        }
+
+        .qr {
+          width: 150px;
+          height: 150px;
+          min-width: 150px;
+          align-self: center;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        .panel,
+        .content {
+          padding: 20px;
+        }
+
+        .track img {
+          height: 38px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <main class="page">
+      <section class="card" aria-label="Tarjeta de presentación">
+        <div class="hero">
+          <div class="badge">✦ Asesoría que no creías necesitar</div>
+          <img
+            class="photo"
+            src="https://i.postimg.cc/Nj3NmLPj/27-jun-2026-05-23-39-p-m.png"
+            alt="Foto de perfil de Pedro Cruz Lara"
+            loading="lazy"
+          />
+          <h1>Pedro Cruz Lara</h1>
+          <div class="role">Agente de Seguros</div>
+          <div class="role">Asesor Patrimonial</div>
+          <div class="gold-line"></div>
+          <p>
+            Protección financiera, seguros, retiro mediante PPR, ahorro para la educación futura de tus hijos, inversión en los mejores portafolios, buscamos soluciones para
+            familias, profesionistas y empresarios que buscan un mejor futuro
+            financiero.
+          </p>
+        </br>
+        </div>
+
+        <div class="content">
+          <div class="quick-actions" aria-label="Acciones rápidas">
+            <a class="btn" href="tel:+522943242462">☎ Llamar</a>
+            <a
+              class="btn"
+              href="https://wa.me/522943242462?text=Hola%20Pedro,%20quiero%20una%20asesoría%20financiera"
+              target="_blank"
+              rel="noopener noreferrer"
+              >💬 WhatsApp</a
+            >
+            <a class="btn secondary" href="mailto:segurosyahorroassa@gmail.com"
+              >✉ Correo</a
+            >
+            <a
+              class="btn secondary"
+              href="https://assadigital.github.io/idcard"
+              target="_blank"
+              rel="noopener noreferrer"
+              >🌐 Nuestro sitio</a
+            >
+            <a class="btn cta" href="https://assadigital.github.io/idcard/#contacto"
+              >Quiero mi diagnóstico gratuito</a
+            >
+          </div>
+
+          <div class="section">
+            <h2>Cobertura</h2>
+            <div class="info-list">
+              
+              <div class="info-item">
+                <span class="icon">📍</span>
+                <div>
+                  <b>Nacional</b><br />Asesoría presencial y remota
+                  vía Zoom
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="section">
+            <a class="btn secondary" id="saveContact" href="#"
+              >📇 Guardar contacto</a
+            >
+          </div>
+
+          <div class="section">
+            <h2>Aliados comerciales</h2>
+            <div
+              class="logo-marquee"
+              aria-label="Logotipos de aliados comerciales"
+            >
+              <div class="track">
+                <img
+                  src="https://i.postimg.cc/KzNr5jKY/logo2.png"
+                  alt="Allianz"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/jS7146Rx/gainback-logo-23a004b3.png"
+                  alt="Gainback"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/QtbkqCBx/descarga-12-removebg-preview.png"
+                  alt="ASSA"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/3xYy4dqj/qualitas-cot.png"
+                  alt="Quálitas"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/KzNr5jKY/logo2.png"
+                  alt="Allianz"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/jS7146Rx/gainback-logo-23a004b3.png"
+                  alt="Gainback"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/QtbkqCBx/descarga-12-removebg-preview.png"
+                  alt="ASSA"
+                  loading="lazy"
+                />
+                <img
+                  src="https://i.postimg.cc/3xYy4dqj/qualitas-cot.png"
+                  alt="Quálitas"
+                  loading="lazy"
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="panel" aria-label="Servicios profesionales">
+        <div class="panel-title">
+          <div>
+            <h2>Planeación financiera con visión patrimonial.</h2>
+            <p>
+              Asesoría en los principales rubros de protección financiera,
+              seguros, retiro, educación e inversión. Podemos generar juntos una
+              estrategia que te permita alcanzar tus objetivos y metas
+              financieras, protegiendo tu patrimonio y el de tu familia.
+            </p>
+          </div>
+          <img
+            class="qr" 
+            src="https://i.postimg.cc/MKNJ0MNk/QR-Allianz-Azul.png"
+            alt="Código QR de la tarjeta digital" 
+            loading="lazy"
+          
+          />
+        </div>
+
+        <div class="section">
+          <h2>Servicios principales</h2>
+          <div class="services">
+            <div class="service">
+              <div class="icon">♥️</div>
+              <b>Seguro de Vida</b>
+              <span>Protección económica para tu familia ante tu pérdida.</span>
+            </div>
+            <div class="service">
+              <div class="icon">🏥</div>
+              <b>Gastos Médicos</b>
+              <span
+                >Respaldo ante accidentes, enfermedades y hospitalización.</span
+              >
+            </div>
+            <div class="service">
+              <div class="icon">🚗</div>
+              <b>Protege tu auto</b>
+              <span
+                >Cuida tu patrimonio con nuestra cobertura integral para tus
+                vehículos.</span
+              >
+            </div>
+            <div class="service">
+              <div class="icon">🎓</div>
+              <b>Ahorro Educativo</b>
+              <span>Planeación para la universidad y futuro de tus hijos.</span>
+            </div>
+            <div class="service">
+              <div class="icon">👴</div>
+              <b>Retiro</b>
+              <span
+                >Construcción de patrimonio para una jubilación digna mediante
+                PPR.</span
+              >
+            </div>
+            <div class="service">
+              <div class="icon">📈</div>
+              <b>Inversión</b>
+              <span>Opciones para hacer crecer tu dinero con estrategia.</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="section" id="diagnostico">
+          <h2>Solicita tu diagnóstico financiero</h2>
+          <div class="testimonial">
+            “La mejor decisión financiera no es la que se toma cuando ya hay una
+            emergencia o evento catastrófico, sino la que se planea a tiempo” .
+            <br />
+            Agenda una asesoría sin costo y conoce tus áreas de oportunidad.<br />
+          </div>
+          <br />
+          <a
+            class="btn"
+            href="https://wa.me/522943242462?text=Hola%20Pedro,%20quiero%20agendar%20mi%20diagnóstico%20financiero%20gratuito"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Agendar por WhatsApp
+          </a>
+        </div>
+
+        <footer>
+          © 2026 Pedro Cruz Lara · Asesor Patrimonial y Agente de Seguros ·
+          Tarjeta digital profesional
+        </footer>
+      </section>
+    </main>
+
+    <nav class="bottom-nav" aria-label="Accesos rápidos">
+      <a href="tel:+522943242462" aria-label="Llamar">☎</a>
+      <a
+        href="https://wa.me/522943242462"
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Enviar WhatsApp"
+        >💬</a
+      >
+      <a href="mailto:segurosyahorroassa@gmail.com" aria-label="Enviar correo"
+        >✉</a
+      >
+      <a href="#diagnostico" aria-label="Agendar diagnóstico">📅</a>
+    </nav>
+
+    <script>
+      (function () {
+        var saveContact = document.getElementById("saveContact");
+
+        if (!saveContact) return;
+
+        saveContact.addEventListener("click", function (e) {
+          e.preventDefault();
+
+          var vcard = [
+            "BEGIN:VCARD",
+            "VERSION:3.0",
+            "FN:Pedro Cruz Lara",
+            "N:Cruz Lara;Pedro;;;",
+            "ORG:Asesor Patrimonial y Agente de Seguros",
+            "TITLE:Asesor Patrimonial y Agente de Seguros",
+            "TEL;TYPE=CELL:+52 294 324 2462",
+            "EMAIL:segurosyahorroassa@gmail.com",
+            "ADR;TYPE=WORK:;;Catemaco;Veracruz;;;México",
+            "NOTE:Seguros de vida, gastos médicos mayores, retiro, educación, inversión y protección patrimonial.",
+            "URL:https://assadigital.github.io/idcard",
+            "END:VCARD",
+          ].join("\r\n");
+
+          var blob = new Blob([vcard], { type: "text/vcard;charset=utf-8" });
+          var url = window.URL.createObjectURL(blob);
+          var link = document.createElement("a");
+          link.href = url;
+          link.download = "Pedro_Cruz_Lara_Asesor_Patrimonial.vcf";
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+
+          window.setTimeout(function () {
+            window.URL.revokeObjectURL(url);
+          }, 1000);
+        });
+      })();
+    </script>
+  </body>
+</html>
